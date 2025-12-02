@@ -27,7 +27,7 @@ def home(page: ft.Page, username):
     # 🔹 Function to load and filter messages
     def load_messages():
         try:
-            url = f"https://raw.githubusercontent.com/Aissaouileith31/school_data3/refs/heads/main/messege.json?nocache={int(time.time())}"
+            url = f"{message_url_from_github}?nocache={int(time.time())}"
             with httpx.Client(timeout=5) as client:
                 response = client.get(url, headers={"Cache-Control": "no-cache"})
                 response.raise_for_status()
@@ -39,7 +39,7 @@ def home(page: ft.Page, username):
 
     def load_crenau():
         try:
-            url = f"https://raw.githubusercontent.com/Aissaouileith31/school_data3/refs/heads/main/crenau.json?nocache={int(time.time())}"
+            url = f"{crenau_url_from_github}?nocache={int(time.time())}"
             with httpx.Client(timeout=5) as client:
                 response = client.get(url, headers={"Cache-Control": "no-cache"})
                 response.raise_for_status()
